@@ -87,7 +87,7 @@
 
     menu.close = function() {
       menu._state = 'closed';
-      translatePosition(menu, '-' + width);
+      translatePosition(menu, '0');
       translatePosition(push, '0');
     };
 
