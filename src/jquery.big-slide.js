@@ -68,16 +68,21 @@
 
     menu._state = 'closed';
 
+    var getState = function(){ return menu._state; };
+    var bigSlideEvent = new CustomEvent('bigslide', {'detail': {'state': getState}});
+
     menu.open = function() {
       menu._state = 'open';
       menu.css(settings.side, '0');
       push.css(settings.side, width);
+      document.body.dispatchEvent(bigSlideEvent);
     };
 
     menu.close = function() {
       menu._state = 'closed';
       menu.css(settings.side, '-' + width);
       push.css(settings.side, '0');
+      document.body.dispatchEvent(bigSlideEvent);
     };
 
     menuLink.on('click.bigSlide', function(e) {
